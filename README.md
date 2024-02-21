@@ -97,9 +97,9 @@ const ThemeList = ['light', 'dark', 'blue', 'green'];
 const Layout = () => {
   return (
     <ThemesProvider def='auto' list={ThemeList}>
-      <OtherComponents />
+      {/* <OtherComponents /> */}
       <Switch />
-      <OtherComponents />
+      {/* <OtherComponents /> */}
     </ThemesProvider>
   );
 };

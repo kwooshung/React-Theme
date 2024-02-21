@@ -1,3 +1,7 @@
+## 🎉 1.0.2 `2024-02-22`
+### 🐛 Fix
+- ドキュメントをより明確にします ([#76b479a](https://github.com/kwooshung/React-Themes/commit/76b479aea1134a476dca3aa56fbb9d2e9507e8b2))
+
 ## 🎉 1.0.1 `2024-02-22`
 ### 🐛 Fix
 - ドキュメント形式を変更します ([#5f5b6d2](https://github.com/kwooshung/React-Themes/commit/5f5b6d22711c9650b2284c72d45e9047e295fb0a))
