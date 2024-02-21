@@ -49,6 +49,12 @@
 - Of course, this project also offers a **commonjs (cjs)** version;
 - **100%** test coverage;
 
+# Demo
+
+## [CodePen](https://codepen.io/kwooshung/pen/vYPwypM)
+
+## [CodeSandbox](https://codesandbox.io/p/devbox/react-themes-tmdtrh?file=%2Fsrc%2Fmain.tsx%3A9%2C3)
+
 # Installation
 
 ## npm

@@ -1,4 +1,4 @@
-import { FC, ReactNode, useContext } from 'react';
+import { FC, memo, ReactNode, useContext } from 'react';
 import ThemesContext from './themesContext';
 import { IThemesProps } from './interfaces';
 
@@ -11,4 +11,4 @@ const Themes: FC<IThemesProps> = ({ children }: IThemesProps): ReactNode => {
   return children(context);
 };
 
-export default Themes;
+export default memo(Themes);

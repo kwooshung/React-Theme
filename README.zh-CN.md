@@ -49,6 +49,12 @@
 - 当然本项目也提供了 **commonjs** 规范的 **cjs** 版本；
 - 测试覆盖率 **100%**；
 
+# 在线演示
+
+## [CodePen](https://codepen.io/kwooshung/pen/vYPwypM)
+
+## [CodeSandbox](https://codesandbox.io/p/devbox/react-themes-tmdtrh?file=%2Fsrc%2Fmain.tsx%3A9%2C3)
+
 # 安装
 
 ## npm
