@@ -1,3 +1,9 @@
+## 🎉 1.0.0 `2024-02-22`
+### ✨ Feature
+- 增加在線演示案例 ([#f8ef484](https://github.com/kwooshung/React-Themes/commit/f8ef4846e2f9a322531c4d6d0f94f350c47d255f))
+### 🐛 Fix
+- 修改英語文檔，由於文檔的副本，文本不正確 ([#7cf5264](https://github.com/kwooshung/React-Themes/commit/7cf526425c813fb63b759850b5f62ec8505c811e))
+
 ## 🎉 0.0.1 `2024-02-22`
 ### 🆕 Add
 - 說明該文檔基本上是完美的，演示演示了，然後添加 ([#36ad49c](https://github.com/kwooshung/React-Themes/commit/36ad49c55b49c1a79408530d35243636fb7fb248))
@@ -7,4 +13,3 @@
 - 維修單元測試類型 ([#ae82a55](https://github.com/kwooshung/React-Themes/commit/ae82a552fbf7dc96a65b4868eb3786826bd39da3))
 ### ✨ Feature
 - 該功能非常完美，因此有一個測試單元測試和API文檔 ([#8911071](https://github.com/kwooshung/React-Themes/commit/8911071f6d72cac0e2dd7f8d092ae8cc416c9a01))
-

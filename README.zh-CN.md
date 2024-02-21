@@ -2,7 +2,7 @@
 
 # @kwooshung/react-themes
 
-超方便的主题管理组件，可自行设置主题颜色，可自行设计模板，所有数据主题共享同一个状态，支持本地存储设置。
+## 超方便的主题管理组件，可自行设置主题颜色，可任意增加自定义主题，可自行设计模板，所有数据主题共享同一个状态，支持本地存储设置，可根据系统判断浅色调或暗色调。
 
 [![GitHub License](https://img.shields.io/github/license/kwooshung/React-Themes?labelColor=272e3b&color=165dff)](LICENSE)
 ![GitHub Release Date - Published_At](https://img.shields.io/github/release-date/kwooshung/React-Themes?labelColor=272e3b&color=00b42A&logo=github)
@@ -48,6 +48,12 @@
 - 可按需引入，**esm** 模块化，天生支持 **树摇（tree-shaking）**，不用担心打包后的体积；
 - 当然本项目也提供了 **commonjs** 规范的 **cjs** 版本；
 - 测试覆盖率 **100%**；
+
+# 在线演示
+
+## [CodePen](https://codepen.io/kwooshung/pen/vYPwypM)
+
+## [CodeSandbox](https://codesandbox.io/p/devbox/react-themes-tmdtrh?file=%2Fsrc%2Fmain.tsx%3A9%2C3)
 
 # 安装
 

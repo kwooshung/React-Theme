@@ -2,7 +2,7 @@
 
 # @kwooshung/react-themes
 
-It is more convenient to use svg as React icon, which has strong operability and high degree of freedom.
+## A super convenient theme management component, you can set the theme color by yourself, add custom themes at will, and design templates by yourself. All data themes share the same state, support local storage settings, and can determine light or dark colors according to the system.
 
 [![GitHub License](https://img.shields.io/github/license/kwooshung/React-Themes?labelColor=272e3b&color=165dff)](LICENSE)
 ![GitHub Release Date - Published_At](https://img.shields.io/github/release-date/kwooshung/React-Themes?labelColor=272e3b&color=00b42A&logo=github)
@@ -27,31 +27,33 @@ It is more convenient to use svg as React icon, which has strong operability and
 
 # Why Develop It?
 
-- So, I think directly importing icons as components into my project is the most suitable way for me.
-- Because current **React websites** only load the entire page during the initial load. During route switching, there's no whole page reload, and writing them once in the global structure won't pose any performance issues (after all, the dynamic creation process of [IconFont](https://www.iconfont.cn/) scripts works the same way).
+- In today's world, can a website be called modern without a **`Change Theme`** feature? At the very least, it should have a **`Dark Mode`**, right?
 
 # What Pain Points Does It Solve?
 
-- Why not directly import SVGs and auto-generate icons?
-  - Because I don't like this way of importing, and the componentization functionality is not strong or flexible enough.
-- Why not directly use [IconFont](https://www.iconfont.cn/) to import **script**?
-  - I quite like this method, but it’s troublesome to manage icons on the official website every time;
-  - It's also bothersome to upload my own icons, especially since the review mechanism is very strict; for example, I wanted to upload a Chinese flag icon to support internationalization, but the review system didn't allow it;
-  - There was an incident where [IconFont](https://www.iconfont.cn/) suddenly announced they would close their CDN service. Although the existing icon links were not affected, modifying the icon library became impossible, and I had to download them myself. Later on, they reopened the service, but such instability is worrying;
-- Full control over tags and SVG structure;
-- Supports **prefix** for easy management;
+- Every time a website is developed, there's the hassle of writing a theme management system from scratch;
+- Why not use other third-party components?
+  - They are often highly integrated with their own UI component libraries;
+  - The functionality is too complex and not lightweight enough;
+  - The lightweight component libraries, on the other hand, tend to be overly simplistic in features;
 
 # Why Use It?
 
-- Supports custom SVG icons, allowing you to use any icons you like;
-- Supports customization of the loading bar's style, such as color, size, rotation direction, and animation;
-- Supports bilingual annotations in both English and Chinese;
-- Low learning curve, simple and flexible usage;
-- Implemented using modern features of **ES6**;
+- **Headless**, no predefined styles, allows customizing the theme switch button or list;
+- Supports custom theme colors, with default support for **'light'** and **'dark'** themes;
+- Easy to use, simple operation, **low learning curve**, and high flexibility;
+- Shared state, all data themes share the same status;
+- Implemented with modern **ES6** features;
 - Written in **TypeScript** for type safety;
-- Supports modular import on demand with `esm`, natively supporting **tree-shaking**, so there's no need to worry about the package size post-compilation;
-- This project also provides a `commonjs` (`cjs`) version;
-- Test coverage **100%**;
+- Modular **esm** import on demand, naturally supports **tree-shaking**, no worries about the size after packaging;
+- Of course, this project also offers a **commonjs (cjs)** version;
+- **100%** test coverage;
+
+# Demo
+
+## [CodePen](https://codepen.io/kwooshung/pen/vYPwypM)
+
+## [CodeSandbox](https://codesandbox.io/p/devbox/react-themes-tmdtrh?file=%2Fsrc%2Fmain.tsx%3A9%2C3)
 
 # Installation
 
