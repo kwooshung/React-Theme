@@ -1,0 +1,33 @@
+{
+  "React-TSX(Function)": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "OsReactCom",
+    "body": [
+      "import styles from './index.module.less';",
+      "import { FC, ReactNode } from 'react';",
+      "",
+      "/**",
+      " * @zh 组件Props属性：$2",
+      " * @en Component props: $2",
+      " */",
+      "export interface I$1Props {",
+      "  /**",
+      "  * @zh 子元素",
+      "  * @en Child element",
+      "  */",
+      "  children?: ReactNode;",
+      "}",
+      "",
+      "/**",
+      " * @zh 组件：$2",
+      " * @en Component: $2",
+      " */",
+      "const $1: FC<I$1Props> = ({ children = null }: I$1Props): ReactNode => {",
+      "  return <>{children}</>;",
+      "}",
+      "",
+      "export default $1;"
+    ],
+    "description": "组件模板"
+  }
+}
