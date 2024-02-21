@@ -2,7 +2,7 @@
 
 # @kwooshung/react-themes
 
-## A super convenient theme management component, you can set the theme color by yourself, add custom themes at will, and design templates by yourself. All data themes share the same state, support local storage settings, and can determine light or dark colors according to the system.
+> A super convenient theme management component, you can set the theme color by yourself, add custom themes at will, and design templates by yourself. All data themes share the same state, support local storage settings, and can determine light or dark colors according to the system.
 
 [![GitHub License](https://img.shields.io/github/license/kwooshung/React-Themes?labelColor=272e3b&color=165dff)](LICENSE)
 ![GitHub Release Date - Published_At](https://img.shields.io/github/release-date/kwooshung/React-Themes?labelColor=272e3b&color=00b42A&logo=github)
@@ -51,9 +51,8 @@
 
 # Demo
 
-## [CodePen](https://codepen.io/kwooshung/pen/vYPwypM)
-
-## [CodeSandbox](https://codesandbox.io/p/devbox/react-themes-tmdtrh?file=%2Fsrc%2Fmain.tsx%3A9%2C3)
+- [CodePen](https://codepen.io/kwooshung/pen/vYPwypM)
+- [CodeSandbox](https://codesandbox.io/p/devbox/react-themes-tmdtrh?file=%2Fsrc%2Fmain.tsx%3A9%2C3)
 
 # Installation
 
