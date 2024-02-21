@@ -1,3 +1,7 @@
+## 🎉 1.0.1 `2024-02-22`
+### 🐛 Fix
+- 문서 형식을 수정하십시오 ([#5f5b6d2](https://github.com/kwooshung/React-Themes/commit/5f5b6d22711c9650b2284c72d45e9047e295fb0a))
+
 ## 🎉 1.0.0 `2024-02-22`
 ### ✨ Feature
 - 온라인 데모 사례를 늘리십시오 ([#f8ef484](https://github.com/kwooshung/React-Themes/commit/f8ef4846e2f9a322531c4d6d0f94f350c47d255f))
