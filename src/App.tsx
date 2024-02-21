@@ -9,11 +9,9 @@ const ThemeList = ['light', 'dark', 'blue', 'green'];
 
 const App = () => {
   return (
-    <>
-      <ThemesProvider def='auto' list={ThemeList}>
-        <Switch />
-      </ThemesProvider>
-    </>
+    <ThemesProvider def='auto' list={ThemeList}>
+      <Switch />
+    </ThemesProvider>
   );
 };
 

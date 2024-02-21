@@ -2,7 +2,7 @@
 
 # @kwooshung/react-themes
 
-更方便的使用svg作为React图标，可操作性强，自由度高。
+超方便的主题管理组件，可自行设置主题颜色，可自行设计模板，所有数据主题共享同一个状态，支持本地存储设置。
 
 [![GitHub License](https://img.shields.io/github/license/kwooshung/React-Themes?labelColor=272e3b&color=165dff)](LICENSE)
 ![GitHub Release Date - Published_At](https://img.shields.io/github/release-date/kwooshung/React-Themes?labelColor=272e3b&color=00b42A&logo=github)
@@ -27,26 +27,22 @@
 
 # 为什么开发它？
 
-- 所以我觉得，把图标使用组件直接引入到自己的项目中，是最适合我的方式。
-- 因为现在的 **react网站**，都是只有首次加载时，才加载整页，路由切换时，也不会触发整页加载，一次性写到全局解构中，也不会有性能问题（毕竟，[IconFont](https://www.iconfont.cn/) 脚本的动态创建也是这样的流程）。
+- 现如今的网站，要是没有个 **“更换主题”** 的功能，能叫现代化网站？最次也得有个 **“暗黑模式”** 吧？
 
 # 解决了什么痛点？
 
-- 为什么不直接引入，自动生成图标？
-  - 因为我不喜欢这种引入方式，而且组件化功能不够强大灵活；
-- 为什么不直接使用 [IconFont](https://www.iconfont.cn/) 引入 **script**？
-  - 我挺喜欢这种方式，但是每次还都要到官网管理图标很麻烦；
-  - 没有合适的图标，自己上传也很麻烦，特别审核机制很严格；比如我为了支持国际化，我需要上传中国国旗图标，但是审核机制不允许；
-  - 之前发生过，[IconFont](https://www.iconfont.cn/) 官网突然公告说要关闭cdn服务，虽然已生成的图标链接不受影响，但是修改图标库就不行了，得自己下载。后来过了段时间又开放了，这种不稳定性很让人担心；
-- 标签，**svg** 结构，完全的控制权；
-- 支持 **prefix** 前缀，方便管理；
+- 每次开发一个网站，都要自己写一套主题管理，都非常麻烦；
+- 为什么不用其他第三方组件？
+  - 与其自家的UI组件库高度耦合；
+  - 功能太过于复杂，不够轻量；
+  - 轻量的组件库，功能相对过于简单；
 
 # 为什么使用它？
 
-- 支持自定义svg图标，你可以使用任何你喜欢的图标；
-- 支持自定义加载条的样式，比如颜色、尺寸、旋转方向和旋转动画；
-- 支持中英文双语注释；
-- 学习成本低，使用简单且灵活；
+- **无头**，没有样式，可自定义主题切换按钮或列表；
+- 支持自定义主题颜色，默认支持 **'light'** 和 **'dark'** 两种主题；
+- 使用方便，操作简单，**学习成本低**，灵活性高；
+- 状态共享，所有数据主题共享同一个状态；
 - **ES6** 的现代特性实现；
 - **TypeScript** 编写，类型安全；
 - 可按需引入，**esm** 模块化，天生支持 **树摇（tree-shaking）**，不用担心打包后的体积；
@@ -74,3 +70,81 @@ pnpm add @kwooshung/react-themes
 ```
 
 # 使用方法
+
+被 `ThemesProvider` 包裹的组件，都可以通过 `Themes` 获取到主题统一的状态。
+
+## ThemesProvider
+
+```tsx
+import { ThemesProvider } from '@kwooshung/react-themes';
+import Switch from './Switch';
+
+/**
+ * @zh 主题列表
+ * @en Theme list
+ */
+const ThemeList = ['light', 'dark', 'blue', 'green'];
+
+/**
+ * @zh 全局布局
+ * @en Global layout
+ */
+const Layout = () => {
+  return (
+    <ThemesProvider def='auto' list={ThemeList}>
+      <OtherComponents />
+      <Switch />
+      <OtherComponents />
+    </ThemesProvider>
+  );
+};
+
+export default App;
+```
+
+## Themes
+
+```tsx
+import { IThemesContext, Themes } from '@kwooshung/react-themes';
+
+const Demo = () => {
+  const themes = (context: IThemesContext): ReactNode => {
+    return (
+      //在这里写你的主题切换按钮或列表，通过 `context` 可以获取到主题状态；
+    );
+  };
+
+  return <Themes>{themes}</Themes>;
+};
+
+export default Switch;
+```
+
+# API
+
+接口类型定义，也可阅览 **[interfaces.d.ts](./src/themes/interfaces.d.ts)** 源文件；
+
+## IThemesProps
+
+| 属性     | 类型                                          | 默认值 | 描述           |
+| -------- | --------------------------------------------- | ------ | -------------- |
+| children | (themeContext: `IThemesContext`) => ReactNode | -      | 子组件渲染函数 |
+
+## IThemesProviderProps
+
+| 属性 | 类型     | 默认值 | 描述                    |
+| ---- | -------- | ------ | ----------------------- |
+| def  | string   | `auto` | 默认主题值，默认 `auto` |
+| list | string[] | -      | 主题列表                |
+
+## IThemesContext
+
+| 属性               | 类型                    | 默认值            | 描述                                                                                               |
+| ------------------ | ----------------------- | ----------------- | -------------------------------------------------------------------------------------------------- |
+| value              | string                  | `auto`            | 当前主题值，默认 `auto`                                                                            |
+| name               | string                  | `auto`            | 当前主题名，除了 `auto` 以外，和 `value` 一样，如果 `value = auto`，若系统是暗色调，则 `name=dark` |
+| setTheme           | (theme: string) => void | -                 | 主题列表                                                                                           |
+| addThemes          | (themes: string         | string[]) => void | 添加主题                                                                                           |
+| getValueTheme      | () => string            | -                 | 获取当前主题值                                                                                     |
+| getNameTheme       | () => string            | -                 | 获取当前主题名                                                                                     |
+| getAvailableThemes | () => string[]          | -                 | 获取可用主题列表                                                                                   |

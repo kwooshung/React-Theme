@@ -55,8 +55,8 @@ export interface IThemesContext {
  */
 export interface IThemesProviderProps {
   /**
-   * @zh 当前主题名，默认 'auto'
-   * @en Current theme name, default 'auto'
+   * @zh 主题默认值，默认 'auto'
+   * @en Default theme value, default 'auto'
    */
   def: string;
   /**
