@@ -1,3 +1,7 @@
+## 🎉 1.0.1 `2024-02-22`
+### 🐛 Fix
+- Modify the document format ([#5f5b6d2](https://github.com/kwooshung/React-Themes/commit/5f5b6d22711c9650b2284c72d45e9047e295fb0a))
+
 ## 🎉 1.0.0 `2024-02-22`
 ### ✨ Feature
 - Increase online demonstration cases ([#f8ef484](https://github.com/kwooshung/React-Themes/commit/f8ef4846e2f9a322531c4d6d0f94f350c47d255f))
