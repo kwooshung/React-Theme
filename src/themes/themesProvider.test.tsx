@@ -36,15 +36,4 @@ describe('ThemesProvider', () => {
 
     expect(screen.getByText(/^当前主题:/)).toHaveTextContent('当前主题: light');
   });
-
-  describe('SSR 测试', () => {
-    it('在 SSR 环境下正确渲染子元素', () => {
-      render(
-        <ThemesProvider def='light' list={['light', 'dark']}>
-          <div>测试内容</div>
-        </ThemesProvider>
-      );
-      expect(screen.getByText('测试内容')).toBeInTheDocument();
-    });
-  });
 });

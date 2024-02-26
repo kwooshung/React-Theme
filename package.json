@@ -62,7 +62,6 @@
     "eslint": "eslint . --fix --cache --quiet --report-unused-disable-directives --max-warnings 0 --ext .js,.cjs,.jsx,.ts,.cts,.tsx"
   },
   "dependencies": {
-    "@kwooshung/react-no-ssr": "^1.1.4",
     "lomind-react": "0.0.11"
   },
   "peerDependencies": {
