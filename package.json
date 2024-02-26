@@ -1,6 +1,6 @@
 {
   "name": "@kwooshung/react-themes",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "title": "react-themes",
   "description": "It is more convenient to use svg as React theme, which has strong operability and high degree of freedom.",
   "private": false,
