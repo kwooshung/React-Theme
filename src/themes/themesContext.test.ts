@@ -1,6 +1,6 @@
 import ThemesContext from './themesContext';
 
-describe('ThemesContext 测试', () => {
+describe('ThemesContext', () => {
   it('ThemesContext 被成功创建', () => {
     expect(ThemesContext).not.toBeUndefined();
   });

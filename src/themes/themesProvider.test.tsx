@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import ThemesProvider from './themesProvider';
 import ThemesContext from './themesContext';
 
-describe('ThemesProvider 组件测试', () => {
+describe('ThemesProvider', () => {
   beforeAll(() => {
     // 模拟 window.matchMedia
     window.matchMedia = vi.fn().mockImplementation((query) => {
@@ -35,5 +35,16 @@ describe('ThemesProvider 组件测试', () => {
     );
 
     expect(screen.getByText(/^当前主题:/)).toHaveTextContent('当前主题: light');
+  });
+
+  describe('SSR 测试', () => {
+    it('在 SSR 环境下正确渲染子元素', () => {
+      render(
+        <ThemesProvider def='light' list={['light', 'dark']}>
+          <div>测试内容</div>
+        </ThemesProvider>
+      );
+      expect(screen.getByText('测试内容')).toBeInTheDocument();
+    });
   });
 });
