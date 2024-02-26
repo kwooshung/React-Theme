@@ -1,3 +1,7 @@
+## 🎉 2.0.0 `2024-02-26`
+### ✨ Feature
+- 支持SSR渲染 ([#9310eec](https://github.com/kwooshung/React-Themes/commit/9310eec6406aae1959e1f6bd1db92c56f6186756))
+
 ## 🎉 1.0.2 `2024-02-22`
 ### 🐛 Fix
 - 使文檔更清晰 ([#76b479a](https://github.com/kwooshung/React-Themes/commit/76b479aea1134a476dca3aa56fbb9d2e9507e8b2))

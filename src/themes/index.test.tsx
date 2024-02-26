@@ -3,7 +3,7 @@ import ThemesContext from './themesContext';
 import Themes from '.';
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from 'react';
 
-describe('Themes 组件测试', () => {
+describe('Themes', () => {
   it('正确接收并传递上下文', () => {
     // 模拟的上下文值
     const mockContextValue: any = {
