@@ -1,3 +1,7 @@
+## 🎉 2.0.1 `2024-02-26`
+### 🐛 Fix
+- SSR의 지원을 제거하십시오. NextJS에서는 적용되지 않습니다. ([#ee7c158](https://github.com/kwooshung/React-Themes/commit/ee7c1583dce3bce7ddb72a2c1b1e99511e0fc4d7))
+
 ## 🎉 2.0.0 `2024-02-26`
 ### ✨ Feature
 - SSR 렌더링을 지원합니다 ([#9310eec](https://github.com/kwooshung/React-Themes/commit/9310eec6406aae1959e1f6bd1db92c56f6186756))
