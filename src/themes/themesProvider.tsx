@@ -1,6 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { useBool, useThemes } from 'lomind-react';
-import { useNoSSR } from '@kwooshung/react-no-ssr';
+import { useThemes } from 'lomind-react';
 import ThemesContext from './themesContext';
 import { IThemesProviderProps } from './interfaces';
 
@@ -13,13 +12,7 @@ import { IThemesProviderProps } from './interfaces';
 const ThemesProvider: FC<IThemesProviderProps> = ({ def, list, children }: IThemesProviderProps): ReactNode => {
   const [value, name, { setTheme, addThemes, getValueTheme, getNameTheme, getAvailableThemes }] = useThemes(def, list);
 
-  const [isSSR, { setFalse: setSSR }] = useBool(true);
-
-  useNoSSR(setSSR);
-
-  return isSSR ? (
-    children
-  ) : (
+  return (
     <ThemesContext.Provider
       value={{
         value,
