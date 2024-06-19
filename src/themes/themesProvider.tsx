@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect } from 'react';
+import { FC, ReactNode } from 'react';
 import { useThemes } from 'lomind-react';
 import ThemesContext from './themesContext';
 import { IThemesProviderProps } from './interfaces';
@@ -24,7 +24,7 @@ const setCookie = (name: string, value: string, seconds: number) => {
  * @return {ReactNode} React节点
  */
 const ThemesProvider: FC<IThemesProviderProps> = ({ def, list, saveKey, saveExpired, children }: IThemesProviderProps): ReactNode => {
-  const [value, name, { setTheme, addThemes, getThemeValue, getThemeName, getThemesAvailable }] = useThemes(def, list, (value: string, name: string) => {
+  const [value, name, { setTheme, addThemes, getThemeValue, getThemeName, getThemesAvailable }] = useThemes(def, list, (_value: string, name: string) => {
     saveKey && setCookie(saveKey, name, saveExpired || 365 * 24 * 60 * 60);
   });
 

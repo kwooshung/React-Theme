@@ -75,7 +75,7 @@ describe('ThemesProvider', () => {
   });
 
   it('调用 setCookie 时传递正确参数', () => {
-    const mockSetTheme = vi.fn((value, name) => {
+    const mockSetTheme = vi.fn((_value, name) => {
       document.cookie = `theme=${name}; path=/;`;
     });
 
