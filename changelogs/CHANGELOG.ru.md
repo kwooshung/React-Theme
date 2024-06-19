@@ -1,3 +1,7 @@
+## 🎉 2.0.2 `2024-06-20`
+### ✨ Feature
+- Увеличьте настройки cookie ([#1b058ea](https://github.com/kwooshung/React-Themes/commit/1b058ea0ccc2416512a0348da7a444654fd45636))
+
 ## 🎉 2.0.1 `2024-02-26`
 ### 🐛 Fix
 - Удалить поддержку SSR, это не применимо в NextJs ([#ee7c158](https://github.com/kwooshung/React-Themes/commit/ee7c1583dce3bce7ddb72a2c1b1e99511e0fc4d7))

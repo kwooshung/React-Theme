@@ -22,7 +22,7 @@ const Switch = () => {
             />
             <label htmlFor={`radio-auto`}>auto</label>
           </li>
-          {context.getAvailableThemes().map((theme: string) => (
+          {context.getThemesAvailable().map((theme: string) => (
             <li onClick={() => context.setTheme(theme)} className={context.value === theme ? styles.active : undefined} key={theme}>
               <input
                 type='radio'

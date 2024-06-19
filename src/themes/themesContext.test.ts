@@ -12,8 +12,8 @@ describe('ThemesContext', () => {
     expect(contextDefaultValue.name).toEqual('auto');
     expect(contextDefaultValue.setTheme).toBeInstanceOf(Function);
     expect(contextDefaultValue.addThemes).toBeInstanceOf(Function);
-    expect(contextDefaultValue.getValueTheme()).toEqual('auto');
-    expect(contextDefaultValue.getNameTheme()).toEqual('auto');
-    expect(contextDefaultValue.getAvailableThemes()).toEqual(['light', 'dark']);
+    expect(contextDefaultValue.getThemeValue()).toEqual('auto');
+    expect(contextDefaultValue.getThemeName()).toEqual('auto');
+    expect(contextDefaultValue.getThemesAvailable()).toEqual(['light', 'dark']);
   });
 });

@@ -1,3 +1,7 @@
+## 🎉 2.0.2 `2024-06-20`
+### ✨ Feature
+- 쿠키 설정을 늘리십시오 ([#1b058ea](https://github.com/kwooshung/React-Themes/commit/1b058ea0ccc2416512a0348da7a444654fd45636))
+
 ## 🎉 2.0.1 `2024-02-26`
 ### 🐛 Fix
 - SSR의 지원을 제거하십시오. NextJS에서는 적용되지 않습니다. ([#ee7c158](https://github.com/kwooshung/React-Themes/commit/ee7c1583dce3bce7ddb72a2c1b1e99511e0fc4d7))

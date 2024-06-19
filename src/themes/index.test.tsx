@@ -24,6 +24,6 @@ describe('Themes', () => {
     );
 
     // 验证是否正确渲染了子组件，并且子组件接收到了正确的上下文
-    expect(screen.getByText('当前主题: Light Theme')).toBeInTheDocument();
+    (expect(screen.getByText('当前主题: Light Theme')) as any).toBeInTheDocument();
   });
 });
