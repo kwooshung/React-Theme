@@ -6,7 +6,7 @@ module.exports = {
   },
   extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react-hooks/recommended', 'prettier', 'plugin:prettier/recommended'],
   plugins: ['react-hooks', 'react-refresh'],
-  ignorePatterns: ['dist', '.eslintrc.cjs', './configs/eslintrc.cjs'],
+  ignorePatterns: ['dist', 'eslint.config.cjs', './configs/eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {

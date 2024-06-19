@@ -10,9 +10,9 @@ const ThemesContext = createContext<IThemesContext>({
   name: 'auto',
   setTheme: () => {},
   addThemes: () => {},
-  getValueTheme: () => 'auto',
-  getNameTheme: () => 'auto',
-  getAvailableThemes: () => ['light', 'dark']
+  getThemeValue: () => 'auto',
+  getThemeName: () => 'auto',
+  getThemesAvailable: () => ['light', 'dark']
 });
 
 export default ThemesContext;

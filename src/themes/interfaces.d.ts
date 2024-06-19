@@ -34,19 +34,19 @@ export interface IThemesContext {
    * @en Get the current theme value
    * @returns 当前主题值
    */
-  getValueTheme: () => string;
+  getThemeValue: () => string;
   /**
    * @zh 获取当前主题名
    * @en Get the current theme name
    * @returns 当前主题名
    */
-  getNameTheme: () => string;
+  getThemeName: () => string;
   /**
    * @zh 获取可用主题列表
    * @en Get available theme list
    * @return {string[]} 主题名列表
    */
-  getAvailableThemes: () => string[];
+  getThemesAvailable: () => string[];
 }
 
 /**
@@ -64,6 +64,16 @@ export interface IThemesProviderProps {
    * @en Theme list
    */
   list?: string[];
+  /**
+   * @zh cookie 保存的 key，不填写则不保存；注意存储的是主题名，而不是主题值；
+   * @en Cookie save key，if not set, it will not save; note that the stored is the theme name, not the theme value;
+   */
+  saveKey?: string;
+  /**
+   * @zh cookie 保存的过期时间，单位秒，默认 365 天
+   * @en Cookie save expired time，unit second，default 365 days
+   */
+  saveExpired?: number;
   /**
    * @zh 子元素
    * @en Sub element
