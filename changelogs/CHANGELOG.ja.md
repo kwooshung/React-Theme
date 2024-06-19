@@ -1,3 +1,7 @@
+## 🎉 2.0.3 `2024-06-20`
+### 🐛 Fix
+- 役に立たない変数を削除して紹介します ([#d78774a](https://github.com/kwooshung/React-Themes/commit/d78774a92f3df22ff48a69ebdb02ba1f01611f82))
+
 ## 🎉 2.0.2 `2024-06-20`
 ### ✨ Feature
 - Cookie設定を増やします ([#1b058ea](https://github.com/kwooshung/React-Themes/commit/1b058ea0ccc2416512a0348da7a444654fd45636))
