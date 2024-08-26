@@ -76,7 +76,9 @@ pnpm add @kwooshung/react-themes
 
 # Usage
 
-被 `ThemesProvider` 包裹的组件，都可以通过 `Themes` 获取到主题统一的状态。
+# 使用方法
+
+Components wrapped by `ThemesProvider` can access the unified theme state through `Themes`.
 
 ## ThemesProvider
 
@@ -96,7 +98,7 @@ const ThemeList = ['light', 'dark', 'blue', 'green'];
  */
 const Layout = () => {
   return (
-    <ThemesProvider def='auto' list={ThemeList}>
+    <ThemesProvider defaultValue='auto' list={ThemeList} saveKey='theme'>
       {/* <OtherComponents /> */}
       <Switch />
       {/* <OtherComponents /> */}
@@ -104,52 +106,61 @@ const Layout = () => {
   );
 };
 
-export default App;
+export default Layout;
 ```
 
-## Themes
+## useThemesContext
 
 ```tsx
-import { IThemesContext, Themes } from '@kwooshung/react-themes';
+import { useThemesContext } from '@kwooshung/react-themes';
 
-const Demo = () => {
-  const themes = (context: IThemesContext): ReactNode => {
-    return (
-      // Write your theme switching button or list here, and you can get the theme status through `context`;
-    );
-  };
+const ThemeSwitcher = () => {
+  const { themeValue, themeName, setTheme, getAvailableThemes } = useThemesContext();
 
-  return <Themes>{themes}</Themes>;
+  return (
+    <div>
+      <h1>Current Theme: {themeName}</h1>
+      <ul>
+        {getAvailableThemes().map((theme) => (
+          <li key={theme} onClick={() => setTheme(theme)}>
+            {theme}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
-export default Switch;
+export default ThemeSwitcher;
 ```
 
 # API
 
-For interface type definition, you can also read the **[interfaces.d.ts](./src/themes/interfaces.d.ts)** source file;
-
-## IThemesProps
-
-| Properties | Type                                          | Default Value | Description                     |
-| ---------- | --------------------------------------------- | ------------- | ------------------------------- |
-| children   | (themeContext: `IThemesContext`) => ReactNode | -             | Subcomponent rendering function |
+Interface type definitions can also be found in the **[interfaces.d.ts](./src/themes/interfaces.d.ts)** source file.
 
 ## IThemesProviderProps
 
-| Properties | Type     | Default Value | Description                         |
-| ---------- | -------- | ------------- | ----------------------------------- |
-| def        | string   | `auto`        | Default theme value, default `auto` |
-| list       | string[] | -             | Topic list                          |
+| Properties   | Type     | Default Value               | Description                                                                            |
+| ------------ | -------- | --------------------------- | -------------------------------------------------------------------------------------- |
+| defaultValue | string   | `auto`                      | Default theme value                                                                    |
+| list         | string[] | `['light', 'dark']`         | List of themes                                                                         |
+| saveKey      | string   | -                           | Optional. Key used to save the theme in a cookie, if provided, the theme will be saved |
+| saveExpired  | number   | `365 * 24 * 60 * 60 * 1000` | Optional. Cookie expiration time in milliseconds, defaults to one year                 |
+
+## useThemesContext
+
+`useThemesContext` is a Hook used to access the current theme context. It must be used within `ThemesProvider`.
+
+```typescript
+const { themeValue, themeName, setTheme, addTheme, getAvailableThemes } = useThemesContext(); // Returns an object of type `IThemesContext`
+```
 
 ## IThemesContext
 
-| Properties         | Type                    | Default Value     | Description                                                                                                               |
-| ------------------ | ----------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| value              | string                  | `auto`            | Current theme value, default `auto`                                                                                       |
-| name               | string                  | `auto`            | The current theme name, except `auto`, is the same as `value`. If `value = auto`, if the system is dark, then `name=dark` |
-| setTheme           | (theme: string) => void | -                 | Topic list                                                                                                                |
-| addThemes          | (themes: string         | string[]) => void | Add topic                                                                                                                 |
-| getValueTheme      | () => string            | -                 | Get the current topic value                                                                                               |
-| getNameTheme       | () => string            | -                 | Get the current topic name                                                                                                |
-| getAvailableThemes | () => string[]          | -                 | Get a list of available themes                                                                                            |
+| Properties         | Type                    | Default Value     | Description                                                                                                       |
+| ------------------ | ----------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------- |
+| themeValue         | string                  | `auto`            | 当前主题值，默认 `auto`                                                                                           |
+| themeName          | string                  | `auto`            | 当前主题名，除了 `auto` 以外，和 `themeValue` 一样，如果 `themeValue = auto`，若系统是暗色调，则 `themeName=dark` |
+| setTheme           | (theme: string) => void | -                 | 设置当前主题                                                                                                      |
+| addTheme           | (themes: string         | string[]) => void | 添加主题                                                                                                          |
+| getAvailableThemes | () => string[]          | -                 | 获取可用主题列表                                                                                                  |

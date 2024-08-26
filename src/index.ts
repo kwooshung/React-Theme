@@ -1,3 +1,3 @@
-export type { IThemesProviderProps, IThemesContext, IThemesProps } from './themes/interfaces';
+export type { default as IThemesProviderProps } from './themes/interfaces';
 export { default as ThemesProvider } from './themes/themesProvider';
-export { default as Themes } from './themes';
+export { default as useThemesContext } from './themes/useThemesContext';

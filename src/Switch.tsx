@@ -1,67 +1,63 @@
 import styles from './Switch.module.less';
-import { ReactNode } from 'react';
-import Themes from './themes';
-import { IThemesContext } from './themes/interfaces';
+import useThemesContext from './themes/useThemesContext';
 
 const Switch = () => {
-  const themes = (context: IThemesContext): ReactNode => {
-    return (
-      <div className={styles.container}>
-        <h1>Theme: {context.value}</h1>
-        <ul className={styles.list}>
-          <li onClick={() => context.setTheme('auto')}>
+  const { themeValue, themeName, setTheme, getAvailableThemes } = useThemesContext();
+
+  return (
+    <div className={styles.container}>
+      <h1>Theme: {themeValue}</h1>
+      <ul className={styles.list}>
+        <li onClick={() => setTheme('auto')}>
+          <input
+            type='radio'
+            id={`radio-auto`}
+            name='themes'
+            value={themeValue}
+            checked={themeValue === 'auto'}
+            onChange={(e) => {
+              setTheme(e.target.value);
+            }}
+          />
+          <label htmlFor={`radio-auto`}>auto</label>
+        </li>
+        {getAvailableThemes().map((theme: string) => (
+          <li onClick={() => setTheme(theme)} className={themeValue === theme ? styles.active : undefined} key={theme}>
             <input
               type='radio'
-              id={`radio-auto`}
+              id={`radio-${theme}`}
               name='themes'
-              value={context.value}
-              checked={context.value === 'auto'}
+              value={theme}
+              checked={themeValue === theme}
               onChange={(e) => {
-                context.setTheme(e.target.value);
+                setTheme(e.target.value);
               }}
             />
-            <label htmlFor={`radio-auto`}>auto</label>
+            <label htmlFor={`radio-${theme}`}>{theme}</label>
           </li>
-          {context.getThemesAvailable().map((theme: string) => (
-            <li onClick={() => context.setTheme(theme)} className={context.value === theme ? styles.active : undefined} key={theme}>
-              <input
-                type='radio'
-                id={`radio-${theme}`}
-                name='themes'
-                value={theme}
-                checked={context.value === theme}
-                onChange={(e) => {
-                  context.setTheme(e.target.value);
-                }}
-              />
-              <label htmlFor={`radio-${theme}`}>{theme}</label>
-            </li>
-          ))}
-        </ul>
+        ))}
+      </ul>
 
-        {['auto', 'light', 'dark'].includes(context.value) && (
-          <label htmlFor={styles.checkbox}>
-            <input
-              type='checkbox'
-              id={styles.checkbox}
-              checked={context.name === 'dark'}
-              onChange={() => {
-                context.setTheme(context.name === 'light' ? 'dark' : 'light');
-              }}
-            />
-            <div className={styles.toggle}>
-              <div className={styles.cloud} />
-              <div className={styles.star} />
-              <div className={styles.sea} />
-              <div className={styles.mountains} />
-            </div>
-          </label>
-        )}
-      </div>
-    );
-  };
-
-  return <Themes>{themes}</Themes>;
+      {['auto', 'light', 'dark'].includes(themeValue) && (
+        <label htmlFor={styles.checkbox}>
+          <input
+            type='checkbox'
+            id={styles.checkbox}
+            checked={themeName === 'dark'}
+            onChange={() => {
+              setTheme(themeName === 'light' ? 'dark' : 'light');
+            }}
+          />
+          <div className={styles.toggle}>
+            <div className={styles.cloud} />
+            <div className={styles.star} />
+            <div className={styles.sea} />
+            <div className={styles.mountains} />
+          </div>
+        </label>
+      )}
+    </div>
+  );
 };
 
 export default Switch;
