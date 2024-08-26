@@ -1,18 +1,10 @@
 import { createContext } from 'react';
-import { IThemesContext } from './interfaces';
+import { useThemes } from 'lomind-react';
 
 /**
  * @zh 主题上下文
  * @en Themes context
  */
-const ThemesContext = createContext<IThemesContext>({
-  value: 'auto',
-  name: 'auto',
-  setTheme: () => {},
-  addThemes: () => {},
-  getThemeValue: () => 'auto',
-  getThemeName: () => 'auto',
-  getThemesAvailable: () => ['light', 'dark']
-});
+const ThemesContext = createContext<ReturnType<typeof useThemes> | undefined>(undefined);
 
 export default ThemesContext;

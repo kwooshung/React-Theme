@@ -1,3 +1,7 @@
+## 🎉 3.0.0 `2024-08-26`
+### ✨ Feature
+- 구성 요소, 새로운 API, 더 간단하고 더 유용한 업데이트 ([#e0d9ac8](https://github.com/kwooshung/React-Themes/commit/e0d9ac84c002ec03a4f630e151a0877d42345def))
+
 ## 🎉 2.0.3 `2024-06-20`
 ### 🐛 Fix
 - 쓸모없는 변수를 제거하고 소개합니다 ([#d78774a](https://github.com/kwooshung/React-Themes/commit/d78774a92f3df22ff48a69ebdb02ba1f01611f82))

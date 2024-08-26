@@ -9,7 +9,7 @@ const ThemeList = ['light', 'dark', 'blue', 'green'];
 
 const App = () => {
   return (
-    <ThemesProvider def='auto' list={ThemeList}>
+    <ThemesProvider defaultValue='auto' list={ThemeList} saveKey='NEXT_THEME'>
       <Switch />
     </ThemesProvider>
   );

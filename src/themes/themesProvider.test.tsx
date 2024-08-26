@@ -29,70 +29,58 @@ describe('ThemesProvider', () => {
   });
 
   it('正确渲染子元素', () => {
-    (useThemes as any).mockReturnValue([
-      'light',
-      'light',
-      {
-        setTheme: vi.fn(),
-        addThemes: vi.fn(),
-        getThemeValue: vi.fn(),
-        getThemeName: vi.fn(),
-        getThemesAvailable: vi.fn()
-      }
-    ]);
+    (useThemes as any).mockReturnValue({
+      themeValue: 'light',
+      themeName: 'light',
+      setTheme: vi.fn(),
+      addTheme: vi.fn(),
+      getAvailableThemes: vi.fn().mockReturnValue(['light', 'dark'])
+    });
 
     render(
-      <ThemesProvider def='light' list={['light', 'dark']} saveKey='theme' saveExpired={3600}>
+      <ThemesProvider defaultValue='light' list={['light', 'dark']} saveKey='theme' saveExpired={3600}>
         <div>测试内容</div>
       </ThemesProvider>
     );
 
-    (expect(screen.getByText('测试内容')) as any).toBeInTheDocument();
+    expect(screen.getByText('测试内容')).toBeInTheDocument();
   });
 
   it('ThemesContext.Provider 正确传递值', () => {
-    (useThemes as any).mockReturnValue([
-      'light',
-      'light',
-      {
-        setTheme: vi.fn(),
-        addThemes: vi.fn(),
-        getThemeValue: vi.fn(),
-        getThemeName: vi.fn(),
-        getThemesAvailable: vi.fn()
-      }
-    ]);
+    (useThemes as any).mockReturnValue({
+      themeValue: 'light',
+      themeName: 'light',
+      setTheme: vi.fn(),
+      addTheme: vi.fn(),
+      getAvailableThemes: vi.fn().mockReturnValue(['light', 'dark'])
+    });
 
-    const TestConsumer = () => <ThemesContext.Consumer>{({ name }) => <div>当前主题: {name}</div>}</ThemesContext.Consumer>;
+    const TestConsumer = () => <ThemesContext.Consumer>{({ themeName }) => <div>当前主题: {themeName}</div>}</ThemesContext.Consumer>;
 
     render(
-      <ThemesProvider def='light' list={['light', 'dark']} saveKey='theme' saveExpired={3600}>
+      <ThemesProvider defaultValue='light' list={['light', 'dark']} saveKey='theme' saveExpired={3600}>
         <TestConsumer />
       </ThemesProvider>
     );
 
-    (expect(screen.getByText(/^当前主题:/)) as any).toHaveTextContent('当前主题: light');
+    expect(screen.getByText(/^当前主题:/)).toHaveTextContent('当前主题: light');
   });
 
   it('调用 setCookie 时传递正确参数', () => {
-    const mockSetTheme = vi.fn((_value, name) => {
-      document.cookie = `theme=${name}; path=/;`;
+    const mockSetTheme = vi.fn((themeValue, themeName) => {
+      document.cookie = `theme=${themeName}; path=/;`;
     });
 
-    (useThemes as any).mockReturnValue([
-      'light',
-      'light',
-      {
-        setTheme: mockSetTheme,
-        addThemes: vi.fn(),
-        getThemeValue: vi.fn(),
-        getThemeName: vi.fn(),
-        getThemesAvailable: vi.fn()
-      }
-    ]);
+    (useThemes as any).mockReturnValue({
+      themeValue: 'light',
+      themeName: 'light',
+      setTheme: mockSetTheme,
+      addTheme: vi.fn(),
+      getAvailableThemes: vi.fn().mockReturnValue(['light', 'dark'])
+    });
 
     render(
-      <ThemesProvider def='light' list={['light', 'dark']} saveKey='theme' saveExpired={3600}>
+      <ThemesProvider defaultValue='light' list={['light', 'dark']} saveKey='theme' saveExpired={3600}>
         <div>测试内容</div>
       </ThemesProvider>
     );
@@ -108,34 +96,30 @@ describe('ThemesProvider', () => {
 
   it('切换主题时更新 context 值', () => {
     let contextValue: any;
-    const mockSetTheme = vi.fn((value, name) => {
-      contextValue = { value, name };
-      document.cookie = `theme=${name}; path=/;`;
+    const mockSetTheme = vi.fn((themeValue, themeName) => {
+      contextValue = { themeValue, themeName };
+      document.cookie = `theme=${themeName}; path=/;`;
     });
 
-    (useThemes as any).mockReturnValue([
-      'light',
-      'light',
-      {
-        setTheme: mockSetTheme,
-        addThemes: vi.fn(),
-        getThemeValue: vi.fn(),
-        getThemeName: vi.fn(),
-        getThemesAvailable: vi.fn()
-      }
-    ]);
+    (useThemes as any).mockReturnValue({
+      themeValue: 'light',
+      themeName: 'light',
+      setTheme: mockSetTheme,
+      addTheme: vi.fn(),
+      getAvailableThemes: vi.fn().mockReturnValue(['light', 'dark'])
+    });
 
     const TestConsumer = () => (
       <ThemesContext.Consumer>
         {(context) => {
           contextValue = context;
-          return <div>当前主题: {context.name}</div>;
+          return <div>当前主题: {context.themeName}</div>;
         }}
       </ThemesContext.Consumer>
     );
 
     render(
-      <ThemesProvider def='light' list={['light', 'dark']} saveKey='theme' saveExpired={3600}>
+      <ThemesProvider defaultValue='light' list={['light', 'dark']} saveKey='theme' saveExpired={3600}>
         <TestConsumer />
       </ThemesProvider>
     );
@@ -145,6 +129,6 @@ describe('ThemesProvider', () => {
       contextValue.setTheme('dark', 'dark');
     });
 
-    expect(contextValue.name).toBe('dark');
+    expect(contextValue.themeName).toBe('dark');
   });
 });

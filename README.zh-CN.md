@@ -96,7 +96,7 @@ const ThemeList = ['light', 'dark', 'blue', 'green'];
  */
 const Layout = () => {
   return (
-    <ThemesProvider def='auto' list={ThemeList}>
+    <ThemesProvider defaultValue='auto' list={ThemeList} saveKey='theme'>
       {/* <OtherComponents /> */}
       <Switch />
       {/* <OtherComponents /> */}
@@ -104,52 +104,61 @@ const Layout = () => {
   );
 };
 
-export default App;
+export default Layout;
 ```
 
-## Themes
+## useThemesContext
 
 ```tsx
-import { IThemesContext, Themes } from '@kwooshung/react-themes';
+import { useThemesContext } from '@kwooshung/react-themes';
 
-const Demo = () => {
-  const themes = (context: IThemesContext): ReactNode => {
-    return (
-      //在这里写你的主题切换按钮或列表，通过 `context` 可以获取到主题状态；
-    );
-  };
+const ThemeSwitcher = () => {
+  const { themeValue, themeName, setTheme, getAvailableThemes } = useThemesContext();
 
-  return <Themes>{themes}</Themes>;
+  return (
+    <div>
+      <h1>当前主题: {themeName}</h1>
+      <ul>
+        {getAvailableThemes().map((theme) => (
+          <li key={theme} onClick={() => setTheme(theme)}>
+            {theme}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
-export default Switch;
+export default ThemeSwitcher;
 ```
 
 # API
 
 接口类型定义，也可阅览 **[interfaces.d.ts](./src/themes/interfaces.d.ts)** 源文件；
 
-## IThemesProps
-
-| 属性     | 类型                                          | 默认值 | 描述           |
-| -------- | --------------------------------------------- | ------ | -------------- |
-| children | (themeContext: `IThemesContext`) => ReactNode | -      | 子组件渲染函数 |
-
 ## IThemesProviderProps
 
-| 属性 | 类型     | 默认值 | 描述                    |
-| ---- | -------- | ------ | ----------------------- |
-| def  | string   | `auto` | 默认主题值，默认 `auto` |
-| list | string[] | -      | 主题列表                |
+| 属性         | 类型     | 默认值                      | 描述                                                 |
+| ------------ | -------- | --------------------------- | ---------------------------------------------------- |
+| defaultValue | string   | `auto`                      | 默认主题值                                           |
+| list         | string[] | `['light', 'dark']`         | 主题列表                                             |
+| saveKey      | string   | -                           | 可选，保存主题到cookie的键，如果设置则保存           |
+| saveExpired  | number   | `365 * 24 * 60 * 60 * 1000` | 可选，保存到cookie的过期时间，单位为毫秒，默认为一年 |
+
+## useThemesContext
+
+`useThemesContext` 是一个 Hook，用于获取当前主题的上下文，必须在 `ThemesProvider` 内部使用。
+
+```typescript
+const { themeValue, themeName, setTheme, addTheme, getAvailableThemes } = useThemesContext(); // 返回值为 `IThemesContext` 接口类型
+```
 
 ## IThemesContext
 
-| 属性               | 类型                    | 默认值            | 描述                                                                                               |
-| ------------------ | ----------------------- | ----------------- | -------------------------------------------------------------------------------------------------- |
-| value              | string                  | `auto`            | 当前主题值，默认 `auto`                                                                            |
-| name               | string                  | `auto`            | 当前主题名，除了 `auto` 以外，和 `value` 一样，如果 `value = auto`，若系统是暗色调，则 `name=dark` |
-| setTheme           | (theme: string) => void | -                 | 主题列表                                                                                           |
-| addThemes          | (themes: string         | string[]) => void | 添加主题                                                                                           |
-| getValueTheme      | () => string            | -                 | 获取当前主题值                                                                                     |
-| getNameTheme       | () => string            | -                 | 获取当前主题名                                                                                     |
-| getAvailableThemes | () => string[]          | -                 | 获取可用主题列表                                                                                   |
+| Properties         | Type                                 | Default Value | Description                                                                                                                                          |
+| ------------------ | ------------------------------------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| themeValue         | string                               | `auto`        | Current theme value, defaults to `auto`                                                                                                              |
+| themeName          | string                               | `auto`        | Current theme name. Except for `auto`, it is the same as `themeValue`. If `themeValue = auto`, and the system is in dark mode, then `themeName=dark` |
+| setTheme           | (theme: string) => void              | -             | Set the current theme                                                                                                                                |
+| addTheme           | (themes: string \| string[]) => void | -             | Add a theme                                                                                                                                          |
+| getAvailableThemes | () => string[]                       | -             | Get the list of available themes                                                                                                                     |
