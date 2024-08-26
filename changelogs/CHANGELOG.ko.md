@@ -1,3 +1,7 @@
+## 🎉 3.0.2 `2024-08-26`
+### ✨ Feature
+- 의존성 업데이트 ([#c7684b0](https://github.com/kwooshung/React-Themes/commit/c7684b0509313659d9ee251be1d8d366ab0f57ac))
+
 ## 🎉 3.0.1 `2024-08-26`
 ### 🐛 Fix
 - 입력 할 필요가없는 가방을 제거하고 너무 크지 않도록하십시오. ([#d3660a8](https://github.com/kwooshung/React-Themes/commit/d3660a8ffda4d99db2fa178efd1082872fd7e4d6))
