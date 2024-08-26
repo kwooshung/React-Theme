@@ -55,7 +55,7 @@ describe('ThemesProvider', () => {
       getAvailableThemes: vi.fn().mockReturnValue(['light', 'dark'])
     });
 
-    const TestConsumer = () => <ThemesContext.Consumer>{({ themeName }) => <div>当前主题: {themeName}</div>}</ThemesContext.Consumer>;
+    const TestConsumer = () => <ThemesContext.Consumer>{({ themeName }: any) => <div>当前主题: {themeName}</div>}</ThemesContext.Consumer>;
 
     render(
       <ThemesProvider defaultValue='light' list={['light', 'dark']} saveKey='theme' saveExpired={3600}>
@@ -67,7 +67,7 @@ describe('ThemesProvider', () => {
   });
 
   it('调用 setCookie 时传递正确参数', () => {
-    const mockSetTheme = vi.fn((themeValue, themeName) => {
+    const mockSetTheme = vi.fn((_themeValue, themeName) => {
       document.cookie = `theme=${themeName}; path=/;`;
     });
 
@@ -113,7 +113,7 @@ describe('ThemesProvider', () => {
       <ThemesContext.Consumer>
         {(context) => {
           contextValue = context;
-          return <div>当前主题: {context.themeName}</div>;
+          return <div>当前主题: {contextValue.themeName}</div>;
         }}
       </ThemesContext.Consumer>
     );
