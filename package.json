@@ -1,6 +1,6 @@
 {
   "name": "@kwooshung/react-themes",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "title": "react-themes",
   "description": "It is more convenient to use svg as React theme, which has strong operability and high degree of freedom.",
   "private": false,
@@ -62,8 +62,8 @@
     "eslint": "eslint . --fix --cache --quiet --report-unused-disable-directives --max-warnings 0 --ext .js,.cjs,.jsx,.ts,.cts,.tsx"
   },
   "dependencies": {
-    "lomind": "^0.0.38",
-    "lomind-react": "0.0.28"
+    "lomind": "^0.0.41",
+    "lomind-react": "0.0.32"
   },
   "peerDependencies": {
     "react": ">=16.6.0",
