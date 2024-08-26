@@ -1,3 +1,7 @@
+## 🎉 3.0.3 `2024-08-26`
+### 🐛 Fix
+- Исправьте настройки cookie ([#9bfa6d9](https://github.com/kwooshung/React-Themes/commit/9bfa6d93b8e76832000c187503524e22b9614cda))
+
 ## 🎉 3.0.2 `2024-08-26`
 ### ✨ Feature
 - Обновить зависимость ([#c7684b0](https://github.com/kwooshung/React-Themes/commit/c7684b0509313659d9ee251be1d8d366ab0f57ac))
