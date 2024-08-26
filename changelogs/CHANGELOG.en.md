@@ -1,3 +1,7 @@
+## 🎉 3.0.1 `2024-08-26`
+### 🐛 Fix
+- Remove the bag that you do not need to enter, avoid too large ([#d3660a8](https://github.com/kwooshung/React-Themes/commit/d3660a8ffda4d99db2fa178efd1082872fd7e4d6))
+
 ## 🎉 3.0.0 `2024-08-26`
 ### ✨ Feature
 - Update component, new API, simpler and better useful ([#e0d9ac8](https://github.com/kwooshung/React-Themes/commit/e0d9ac84c002ec03a4f630e151a0877d42345def))

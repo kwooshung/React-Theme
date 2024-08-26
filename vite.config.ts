@@ -62,7 +62,7 @@ export default defineConfig({
     },
     rollupOptions: {
       // 确保外部化处理那些你不想打包进库的依赖
-      external: ['react', 'react-dom', 'react/jsx-runtime', 'classnames', 'lomind-react'],
+      external: ['react', 'react-dom', 'react/jsx-runtime', 'classnames', 'lomind', 'lomind-react'],
       output: {
         // 为各种格式提供全局变量名
         globals: {
