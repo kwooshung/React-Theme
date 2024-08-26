@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       lomind:
-        specifier: ^0.0.38
-        version: 0.0.38
+        specifier: ^0.0.41
+        version: 0.0.41
       lomind-react:
-        specifier: 0.0.28
-        version: 0.0.28(react@18.3.1)
+        specifier: 0.0.32
+        version: 0.0.32(react@18.3.1)
     devDependencies:
       '@kwooshung/cvlar':
         specifier: ^1.3.8
@@ -2795,13 +2795,13 @@ packages:
     resolution: {integrity: sha512-9ie8ItPR6tjY5uYJh8K/Zrv/RMZ5VOlOWvtZdEHYSTFKZfIBPQa9tOAEeAWhd+AnIneLJ22w5fjOYtoutpWq5w==}
     engines: {node: '>=18'}
 
-  lomind-react@0.0.28:
-    resolution: {integrity: sha512-tHFDwvEaWxDrBLr0DkDFHw0MpXeWuDJFbgJQaXAk/3/h8IkmH4RuhbOK5PZgfdUJvMVFysp8JbfKfU+bR6EKrw==}
+  lomind-react@0.0.32:
+    resolution: {integrity: sha512-EddmDOfpvmUUenx4/YeNXeRTN8jQcSE8MgNsP5Ldu2oK8t1Uu7yqiq+UP6vyDrxEGOV3ZmRya01EXpw/M9OU3g==}
     peerDependencies:
       react: '>=16.6.0'
 
-  lomind@0.0.38:
-    resolution: {integrity: sha512-brU6RsWe3/bzVthjR+AxjlHu1IPj2xVfOUgMuQIzpn+8F6uMbxvS6gFRWqtKyvHKvGunti/Aqc/EsQjwf5hXVA==}
+  lomind@0.0.41:
+    resolution: {integrity: sha512-kUoxBN8svlolfcLAdQ9ZHlCvUkh0C7BNmihNgzlDzegQy87Iv6Va31LTziyF//nDhzIoFNWxQCxluq5lU8vd6Q==}
 
   loose-envify@1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
@@ -7020,12 +7020,12 @@ snapshots:
       strip-ansi: 7.1.0
       wrap-ansi: 9.0.0
 
-  lomind-react@0.0.28(react@18.3.1):
+  lomind-react@0.0.32(react@18.3.1):
     dependencies:
-      lomind: 0.0.38
+      lomind: 0.0.41
       react: 18.3.1
 
-  lomind@0.0.38:
+  lomind@0.0.41:
     dependencies:
       crypto-js: 4.2.0
       ua-parser-js: 1.0.38
