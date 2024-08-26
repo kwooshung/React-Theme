@@ -12,8 +12,8 @@ const ThemesProvider: React.FC<IThemesProviderProps> = ({ defaultValue = 'auto',
   const theme = useThemes(defaultValue, list);
 
   useEffect(() => {
-    saveKey && datas.Cookie.set(saveKey, theme.themeValue, saveExpired);
-  }, [theme.themeValue, saveKey, saveExpired]);
+    saveKey && datas.Cookie.set(saveKey, theme.themeName, saveExpired);
+  }, [theme.themeName, saveKey, saveExpired]);
 
   return <ThemesContext.Provider value={theme}>{children}</ThemesContext.Provider>;
 };
